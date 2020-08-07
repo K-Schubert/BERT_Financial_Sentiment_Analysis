@@ -1,4 +1,4 @@
 *.csv
 .*
-!/.gitignore
+twitter_credentials.py
 model.pth
