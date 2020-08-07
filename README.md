@@ -1,7 +1,7 @@
 # BERT_Financial_Sentiment_Analysis
 
 # Summary
-Using Tweepy to pull data from Twitter (code from LucidProgramming's repo: https://github.com/vprusso/youtube_tutorials/tree/master/twitter_python) and using BERT to predict daily sentiment for stocks. The idea is to create a model where daily sentiment can be used as a predictor for stock price movement. Then add relevant news sources and have a sentiment index for "politics", "financial", etc.
+Using Tweepy to pull data from Twitter (code inspired from LucidProgramming's repo: https://github.com/vprusso/youtube_tutorials/tree/master/twitter_python) and using BERT to predict daily sentiment for stocks. The idea is to create a model where daily sentiment can be used as a predictor for stock price movement. Then add relevant news sources and have a sentiment index for "politics", "financial", etc.
 
 # Current Progress
 At the moment, using ~450'000 reviews from ~500 apps from the Google Play store to fine-tune BERT. The "star rating" of an app is useful as it allows to assign a sentiment to the review to train the model. Then will use this model on Twitter data.
