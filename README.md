@@ -9,7 +9,7 @@ At the moment, using ~450'000 reviews from ~500 apps from the Google Play store 
 # Training
 
 ## Round 1
-Trained BERT model_2 on 450'000 Google Play reviews from 500 apps of all categories (Art & Design, Beauty, etc.). Trained for 10 epochs (17 hrs) on a single GPU to achieve 75% test accuracy. This is as good as a model_1 trained for 10 epochs (1 hr) on 15'000 reviews. However, the issue of val loss increasing with val acc has been resolved and is probably due to the increase in the val dataset size. For the next round of training, will train model_1 for more epochs on the small dataset and compare to training model_2 on the larger dataset for the same number of epochs while resorting to using at least 4 GPUs this time.
+Trained BERT model_2 on 450'000 Google Play reviews from 500 apps of all categories (Art & Design, Beauty, etc.). Trained for 10 epochs (17 hrs) on a single GPU to achieve 75% test accuracy. This is worse than model_1 (84% test acc) trained for 10 epochs (1 hr) on 15'000 reviews. However, the issue of val loss increasing with val acc has been resolved and is probably due to the increase in the val dataset size. For the next round of training, will train model_1 for more epochs on the small dataset and compare to training model_2 on the larger dataset for the same number of epochs while resorting to using at least 4 GPUs this time.
 
 ## Round 2
 
