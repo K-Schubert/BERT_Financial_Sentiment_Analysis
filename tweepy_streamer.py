@@ -31,6 +31,14 @@ class TwitterClient():
             tweets.append(tweet)
         return tweets
 
+    def get_hashtag_timeline_tweets(self, num_tweets):
+        tweets = []
+        for tweet in Cursor(self.twitter_client.search, q='#AAPL', lang='en').items(num_tweets):
+            tweets.append(tweet)
+        return tweets
+
+    #Cursor(api.search, q='#AAPL', rpp=100, lang='en').items(MAX_TWEETS)
+
     def get_friend_list(self, num_friends):
         friend_list = []
         for friend in Cursor(self.twitter_client.friends, id=self.twitter_user).items(num_friends):
@@ -134,6 +142,8 @@ if __name__ == '__main__':
     api = twitter_client.get_twitter_client_api()
 
     tweets = api.user_timeline(screen_name="realDonaldTrump", count=200)
+    tweets = api.user_timeline(screen_name="realDonaldTrump", count=200)
+    Cursor(api.search, q='#AAPL', rpp=100, lang='en').items(MAX_TWEETS)
 
     df = tweet_analyzer.tweets_to_data_frame(tweets)
     df['sentiment'] = np.array([tweet_analyzer.analyze_sentiment(tweet) for tweet in df['tweets']])
