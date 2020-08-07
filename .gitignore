@@ -2,3 +2,4 @@
 .*
 twitter_credentials.py
 model.pth
+__pycache__
