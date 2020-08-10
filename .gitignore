@@ -1,6 +1,7 @@
 *.csv
 .*
 twitter_credentials.py
+newsapi_credentials.py
 tweepy_streamer.py
 model.pth
 __pycache__/

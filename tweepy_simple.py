@@ -28,7 +28,13 @@ class TweetCollector():
 
 		return tweets
 
-	def tweets_to_data_frame(self, tweets):
+	def get_user_timeline_tweets(self, num_tweets):
+		tweets = []
+		for tweet in Cursor(self.twitter_client.user_timeline, id=self.twitter_user).items(num_tweets):
+			tweets.append(tweet)
+		return tweets
+
+	def tweets_to_data_frame(self, tweets, to_csv=False):
 		df = pd.DataFrame(data=[tweet.text for tweet in tweets], columns=['tweets'])
 
 		df['id'] = np.array([tweet.id for tweet in tweets])
@@ -37,8 +43,12 @@ class TweetCollector():
 		df['source'] = np.array([tweet.source for tweet in tweets])
 		df['likes'] = np.array([tweet.favorite_count for tweet in tweets])
 		df['retweets'] = np.array([tweet.retweet_count for tweet in tweets])
+		
+		if to_csv:
+			df.to_csv('tweets_df.csv')
 
 		return df
+			
 
 	def analyze_sentiment(self, tweet):
 		analysis = TextBlob(tweet)
@@ -53,6 +63,7 @@ class TweetCollector():
 		'''
 
 		return analysis.sentiment.polarity
+		
 
 
 if __name__ == '__main__':
